@@ -2,16 +2,16 @@
 title:          Tale
 description:    "Minimal Jekyll theme for storytellers"
 baseurl:        "/tale"
-url:            "https://falldarkcn.github.io"
+url:            "https://chesterhow.github.io"
 
 # Google Analytics
 google_analytics: UA—XXXXXXXX-X
 
 # Author
 author:
-  name:         falldarkcn
-  url:          https://falldarkcn.github.io
-  email:        falldark@163.com
+  name:         Chester How
+  url:          https://chester.how
+  email:        chesterhow@gmail.com
 
 # Build settings
 markdown:       kramdown
