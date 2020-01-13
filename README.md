@@ -1,47 +1,129 @@
-### 博客地址
+# Tale
 
-Github托管的是以前Jekyll版本的源码，现在博客用Hexo重新搭建
-#### 预览
+[![Gem Version](https://badge.fury.io/rb/tale.svg)](https://badge.fury.io/rb/tale)
 
-* Jekyll版本：EZLippi.github.io
-* Hexo 版本： [www.ezlippi.com](http://www.ezlippi.com)
-* Hexo版本源码：[https://coding.net/u/ezlippi/p/ezlippi/git/tree/coding-pages/](https://coding.net/u/ezlippi/p/ezlippi/git/tree/coding-pages/)
+Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/).
 
-### 使用Jekyll版本作为博客模板，仅需如下几步：
+![Tale screenshot](http://i.imgur.com/pXZrtmo.png)
 
-1. 首先Fork或Download一份本项目代码。 
-2. 修改_config.yaml及about.md文件，以变更个人信息。 
-3. 修改_include目录下相关文件，以配置网站统计(analytics.html)，网友评论(comment.html)，右侧栏目(categories.html),热门文章(hot.html),友情链接(links.html)等。 
-4. 修改CNAME文件，以绑定自己的域名。 
-5. 删除_posts下文章，换成你自己的。 
-6. 去谷歌自定义搜索新建一个你的搜索引擎，把你的Id替换根目录下search.html我的ID
-7. 最后，push到你自己的博客Repo~ 
+## Features
+- Easy installation
+- Compatible with GitHub Pages
+- Responsive design (looks just as good on mobile)
+- Syntax highlighting, with the help of Pygments
+- Markdown and HTML text formatting
+- Pagination of posts
+- [Disqus comments (can be enabled if needed)](#enabling-comments)
 
- *^_^*如果愿意，Star本项目一个吧~ 
+## Installation
+There are 3 ways to install this theme
 
-### 本项目使用了
+1. Install it as a Ruby Gem (for self-hosted sites)
+2. Install it with the `jekyll-remote-theme` plugin (for GitHub Pages hosted sites)
+3. Fork the project directly
 
-1. CNZZ的网站统计服务，官网：http://cnzz.com 
-2. 多说的评论功能，官网:http://duoshuo.com/
+### Ruby Gem method
+1. Add this line to your `Gemfile`:
 
-### 联系方式
+```ruby
+gem "tale"
+```
 
-联系方式： Email(ouyanglip@gmail.com) 
+2. Install the theme's gems and dependencies:
 
+```bash
+$ bundle
+```
 
-### 使用本项目作模板的博客链接
+3. In `_config.yml` add these lines:
 
-* http://www.94geek.com  
-* http://www.haidaoxiaofei.me  
-* http://www.malphi.net  
-* http://happyaround.com  
-* http://tencentlocation.github.io  
-* http://wtaps.github.io 
-* http://maoshu.cc
-* http://x-carto.com/
-* http://flypeom.site
+```yaml
+theme:      tale
 
-## 2016-02-25更新
+permalink:  /:year-:month-:day/:title
+paginate:   5
+```
 
-* 本博客由Jekyl迁移到Hexo,博客地址[ezlippi](www.ezlippi.com),源码托管在了国内的[Coding.net](https://coding.net/u/ezlippi/p/ezlippi/git/tree/coding-pages/)
-* 使用Hexo搭建个人博客具体教程参考[Jekyll迁移到Hexo建立个人博客](http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html)
+Remove any other `theme:` lines.
+
+4. Rename `index.md` to `index.html`. Without this, the `jekyll-paginate` gem will not work.
+
+5. In `about.md`, change the `layout:` field to `post`:
+
+```Markdown
+layout: post
+```
+
+### GitHub Pages method
+1. Add these 2 lines in to your `Gemfile`:
+
+```ruby
+gem "jekyll-remote-theme"
+gem "jekyll-paginate"
+```
+
+2. Install the newly added gems:
+
+```bash
+$ bundle
+```
+
+3. In `_config.yml` add these lines:
+
+```yaml
+remote_theme: chesterhow/tale
+
+permalink:    /:year-:month-:day/:title
+paginate:     5
+
+plugins:
+  - jekyll-paginate
+  - jekyll-remote-theme
+```
+
+Remove any other `theme:` or `remote_theme:` lines.
+
+4. Rename `index.md` to `index.html`. Without this, the `jekyll-paginate` gem will not work.
+
+5. In `about.md`, change the `layout:` field to `post`:
+
+```Markdown
+layout: post
+```
+
+### Fork method
+1. Fork this repository
+
+2. Delete the unnecessary files/folders: `CODE_OF_CONDUCT.md`, `LICENSE`, `README.md`, `tale.gemspec`
+
+3. Delete the `baseurl` line in `_config.yml`:
+
+```yaml
+baseurl:  "/tale"   # delete this line
+```
+
+## Usage
+Once you've installed the theme, you're ready to work on your Jekyll site. To start off, I would recommend updating `_config.yml` with your site's details.
+
+To build and serve your site, run:
+
+```bash
+$ bundle exec jekyll serve
+```
+
+And you're all set! Head over to http://127.0.0.1:4000/ to see your site in action.
+
+### Enabling Comments
+Comments are disabled by default. To enable them, look for the following line in `_config.yml` and change `jekyll-tale` to your site's Disqus id.
+
+```yml
+disqus: jekyll-tale
+```
+
+Next, add `comments: true` to the YAML front matter of the posts which you would like to enable comments for.
+
+## Contributing
+Found a bug or have a suggestion? Feel free to create an issue or make a pull request!
+
+## License
+See [LICENSE](https://github.com/chesterhow/tale/blob/master/LICENSE)
